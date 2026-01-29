@@ -1,12 +1,12 @@
 import user_roles from "../data/user_roles.data.js";
 
 export const getAllUserRoles = (req, res) => {
-  res.json(user_roles);
+  res.status(200).json(user_roles);
 };
 
 export const getUserRoleById = (req, res) => {
-  const userrole = user_roles.find((r) => r.id == req.params.id);
-  userrole ? res.json(user_roles) : res.status(404).json({ message: "User Role not found" });
+  const user_role = user_roles.find((u) => u.id == req.params.id);
+  user_role ? res.json(user_role) : res.status(404).json({ message: "User Role not found" });
 };
 
 export const createUserRole = (req, res) => {
@@ -15,20 +15,19 @@ export const createUserRole = (req, res) => {
   res.status(201).json(newUserRole);
 };
 
-export const updateRole = (req, res) => {
-  const index = roles.findIndex((u) => u.id == req.params.id);
+export const updateUserRole = (req, res) => {
+  const index = user_roles.findIndex((u) => u.id == req.params.id);
 
-  if (index === -1) return res.status(404).json({ message: "Role not found" });
-
-  roles[index] = { ...roles[index], ...req.body };
-  res.json(roles[index]);
+  if (index === -1) return res.status(404).json({ message: "user Role not found" });  
+  user_roles[index] = { ...user_roles[index], ...req.body };
+  res.json(user_roles[index]);
 };
 
-export const deleteRole = (req, res) => {
-  const index = roles.findIndex((u) => u.id == req.params.id);
+export const deleteUserRole = (req, res) => {
+  const index = user_roles.findIndex((u) => u.id == req.params.id);
 
-  if (index === -1) return res.status(404).json({ message: "Role not found" });
+  if (index === -1) return res.status(404).json({ message: "User Role not found" });
 
-  const deleted = roles.splice(index, 1);
+  const deleted = user_roles.splice(index, 1);
   res.json(deleted[0]);
 };

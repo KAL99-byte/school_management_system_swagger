@@ -1,45 +1,45 @@
 import express from "express";
 import {
-  getAllRoles,
-  getRoleById,
-  createRole,
-  updateRole,
-  deleteRole,
-} from "../controllers/roles.controller.js";
+  getAllUserRoles,
+  getUserRoleById,
+  createUserRole,
+  updateUserRole,
+  deleteUserRole,
+} from "../controllers/user_roles.controller.js";
 
 const router = express.Router();
 
 /**
  * @swagger
  * tags:
- *   name: Users
- *   description: User management CRUD
+ *   name: User Roles
+ *   description: User Role management CRUD
  */
 
 /**
  * @swagger
- * /roles:
+ * /user-roles:
  *   get:
- *     tags: [Roles]
- *     summary: Get all roles
+ *     tags: [User Roles]
+ *     summary: Get all user roles
  *     responses:
  *       200:
- *         description: List of all roles
+ *         description: List of all user roles
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/Role'
+ *                 $ref: '#/components/schemas/User_Role'
  */
-router.get("/", getAllRoles);
+router.get("/", getAllUserRoles);
 
 /**
  * @swagger
- * /roles/{id}:
+ * /user-roles/{id}:
  *   get:
- *     tags: [Roles]
- *     summary: Get a role by ID
+ *     tags: [User Roles]
+ *     summary: Get a user role by ID
  *     parameters:
  *       - in: path
  *         name: id
@@ -48,44 +48,44 @@ router.get("/", getAllRoles);
  *           type: integer
  *     responses:
  *       200:
- *         description: Role found
+ *         description: User Role found
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Role'
+ *               $ref: '#/components/schemas/User_Role'
  *       404:
- *         description: Role not found
+ *         description: User Role not found
  */
-router.get("/:id", getRoleById);
+router.get("/:id", getUserRoleById);
 
 /**
  * @swagger
- * /roles:
+ * /user-roles:
  *   post:
- *     tags: [Roles]
- *     summary: Create a new role
+ *     tags: [User Roles]
+ *     summary: Create a new user role
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Role'
+ *             $ref: '#/components/schemas/User_Role'
  *     responses:
  *       201:
- *         description: Role created successfully
+ *         description: User Role created successfully
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Role'
+ *               $ref: '#/components/schemas/User_Role'
  */
-router.post("/", createRole);
+router.post("/", createUserRole);
 
 /**
  * @swagger
- * /roles/{id}:
+ * /user-roles/{id}:
  *   put:
- *     tags: [Roles]
- *     summary: Update an existing role
+ *     tags: [User Roles]
+ *     summary: Update an existing user role
  *     parameters:
  *       - in: path
  *         name: id
@@ -97,22 +97,22 @@ router.post("/", createRole);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Role'
+ *             $ref: '#/components/schemas/User Role'
  *     responses:
  *       200:
- *         description: Role updated successfully
+ *         description: User Role updated successfully
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Role'
+ *               $ref: '#/components/schemas/User_Role'
  *       404:
- *         description: Role not found
+ *         description: User Role not found
  */
-router.put("/:id", updateRole);
+router.put("/:id", updateUserRole);
 
 /**
  * @swagger
- * /roles/{id}:
+ * /user-roles/{id}:
  *   delete:
  *     tags: [Roles]
  *     summary: Delete a role
@@ -132,6 +132,6 @@ router.put("/:id", updateRole);
  *       404:
  *         description: Role not found
  */
-router.delete("/:id", deleteRole);
+router.delete("/:id", deleteUserRole);
 
 export default router;

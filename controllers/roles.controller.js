@@ -1,11 +1,11 @@
 import roles from "../data/roles.data.js";
 
 export const getAllRoles = (req, res) => {
-  res.json(roles);
+  res.status(200).json(roles);
 };
 
 export const getRoleById = (req, res) => {
-  const role = roles.find((r) => r.id == req.params.id);
+  const role = roles.find((u) => u.id == req.params.id);
   role ? res.json(role) : res.status(404).json({ message: "Role not found" });
 };
 

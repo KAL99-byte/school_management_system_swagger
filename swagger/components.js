@@ -44,6 +44,20 @@
  *           example: active
  */
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * @swagger
  * components:
@@ -62,5 +76,6 @@
  *           example: Admin
  *         description:
  *           type: string
- *           example: Administrator with full access
+ *           example: Administrators roles
  */
+
